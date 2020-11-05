@@ -22,7 +22,7 @@ $(document).ready(function () {
     function paivitaTaulukko() {
                 $.get({
                     url : `http://127.0.0.1:3002/Asiakas`,
-                    data : $('form.haku :input[value!=""]').serializeArray(),
+                    data : $('form.haku').serializeArray(),
                     success : (result) => {
                         showResultInTable(result);
                     }
@@ -32,9 +32,12 @@ $(document).ready(function () {
 showResultInTable = (result) => {
     var inner = "";
     result.forEach(element => {
-        inner += "<tr><td>" + element.nimi + "</td>\n";
-        inner += "<td>" + element.osoite + "</td>\n";
-        inner += "<td>" + element.asty_avain + "</td>\n";
+        inner += "<tr><td>" + element.NIMI + "</td>\n";
+        inner += "<td>" + element.OSOITE + "</td>\n";
+        inner += "<td>" + element.POSTINRO + "</td>\n";
+        inner += "<td>" + element.POSTITMP + "</td>\n";
+        inner += "<td>" + element.LUONTIPVM + "</td>\n";
+        inner += "<td>" + element.ASTY_AVAIN + "</td>\n";
         inner += "</tr>\n";
 
     });

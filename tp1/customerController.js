@@ -1,8 +1,5 @@
 'use strict'
 
-// Asenna ensin mysql driver 
-// npm install mysql --save
-
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -12,9 +9,6 @@ var connection = mysql.createConnection({
   password: 'aeon123',
   database: 'asiakas'
 });
-/*
-  MySQL escape estää SQL injektiot, jotka ovat vaarallisimpia hyökkäyksiä.
-*/
 module.exports =
 {
   fetchTypes: function (req, res) {
@@ -27,17 +21,17 @@ module.exports =
         res.json(results)
       }
     });
-
   },
   fetchAll: function (req, res) {
     var query = "SELECT * FROM asiakas WHERE 1=1"
-    if (req.query.hasOwnProperty('nimi')) {
+    if (req.query.hasOwnProperty('nimi') && req.query.nimi && req.query.nimi != "") {
       query += " AND nimi LIKE "+mysql.escape("%"+req.query.nimi+"%");
     }
-    if (req.query.hasOwnProperty('osoite')) {
+    if (req.query.hasOwnProperty('osoite') && req.query.osoite && req.query.osoite != "") {
       query += " AND osoite LIKE "+mysql.escape("%"+req.query.osoite+"%");
+      console.log(mysql.format(""));
     }
-    if (req.query.hasOwnProperty('asty_avain')) {
+    if (req.query.hasOwnProperty('asty_avain') && req.query.asty_avain) {
       query += " AND asty_avain="+mysql.escape(req.query.asty_avain);
     }
     connection.query(query, function (error, results, fields) {
@@ -48,6 +42,5 @@ module.exports =
         res.json(results);
       }
     });
-
   }
 }

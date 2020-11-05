@@ -2,6 +2,7 @@
 // Asenna ensin express npm install express --save
 
 var express = require('express');
+var fs = require("fs");
 var app=express();
 
 // Otetaan käyttöön body-parser, jotta voidaan html-requestista käsitellä viestin body post requestia varten... *
@@ -37,12 +38,19 @@ app.use(express.static('public'));
 
 app.route('/Asiakas')
     .get(customerController.fetchAll);
+
+app.route('/Tyypit')
+  .get(customerController.fetchTypes);
 //
 
 app.get('/', function(request, response){
     response.statusCode = 200;
-    response.setHeader('Content-Type', 'text/plain');
-    response.end("Terve maailma"); 
+    response.setHeader('Content-Type', 'text/html');
+    fs.readFile("index.html", function(err, data){
+      response.writeHead(200, {'Content-Type' : 'text/html'});
+      response.write(data);
+      response.end();
+    });
 });
 
 

@@ -1,5 +1,5 @@
 # webj2020
-Tehtäväpaketti Node 1
+Tehtäväpaketti Node 1, ...
 ## Tarvittavat Node moduulit
 * Express
 * MySQL

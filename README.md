@@ -1,7 +1,7 @@
 # webj2020
-##Tarvittavat Node moduulit
+## Tarvittavat Node moduulit
 * Express
 * MySQL
 
-##Miten käyttää
+## Miten käyttää
 ```npm run start```

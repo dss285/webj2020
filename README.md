@@ -8,3 +8,5 @@ Tehtäväpaketti Node 1
 Muuta server.js tiedostossa MySQL tunnukset ja tietokanta.
 
 ```npm run start```
+
+Tällöin tämä avaa serverin ```http://127.0.0.1:3002```, jossa on haku APIsta.

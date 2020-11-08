@@ -38,6 +38,7 @@ module.exports =
       if (error) {
         console.log("Virhe: " + error);
         res.status(500);
+        res.json({"status" : "Error"})
       } else {
         res.json(results);
       }

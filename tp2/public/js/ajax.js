@@ -16,20 +16,22 @@ $(document).ready(function () {
             }
         )
     }
-    $("form.haku").on( "submit", function( event ) {
-        event.preventDefault();
-        paivitaTaulukko();
+    $("table").on("click", ".poista", function() {
+        $.ajax({
+            url: `http://127.0.0.1:3002/Asiakas/`+$(this).attr("data"),
+            type: 'DELETE',
+            success: function(result) {
+                paivitaTaulukko();
+            }
+        });
     });
-
-    function paivitaTaulukko() {
-                $.get({
-                    url : `http://127.0.0.1:3002/Asiakas`,
-                    data : $('form.haku').serializeArray(),
-                    success : (result) => {
-                        showResultInTable(result);
-                    }
-                })
-    }
+    $("#lisaaBtn").click(function() {
+        $("#dialog").dialog("open");
+    })
+    $("form.lisays").on("submit", function(event) {
+        event.preventDefault();
+        lisaa();
+    })
     function lisaa() {
         $.post(
             {
@@ -46,22 +48,19 @@ $(document).ready(function () {
             $("#dialog").dialog("open");
         })
     }
-    $("table").on("click", ".poista", function() {
-        $.ajax({
-            url: `http://127.0.0.1:3002/Asiakas/Poista/`+$(this).attr("data"),
-            type: 'DELETE',
-            success: function(result) {
-                paivitaTaulukko();
-            }
-        });
-    });
-    $("#lisaaBtn").click(function() {
-        $("#dialog").dialog("open");
-    })
-    $("form.lisays").on("submit", function(event) {
+    $("form.haku").on( "submit", function( event ) {
         event.preventDefault();
-        lisaa();
-    })
+        paivitaTaulukko();
+    });
+    function paivitaTaulukko() {
+        $.get({
+            url : `http://127.0.0.1:3002/Asiakas`,
+            data : $('form.haku').serializeArray(),
+            success : (result) => {
+                showResultInTable(result);
+            }
+        })
+}
 });
 
 showResultInTable = (result) => {

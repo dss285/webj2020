@@ -41,7 +41,7 @@ app.use(express.static('public'));
 app.route('/Asiakas')
     .get(customerController.fetchAll)
     .post(customerController.create);
-app.route('/Asiakas/Poista/:id')
+app.route('/Asiakas/:id')
     .delete(customerController.delete);
 
 app.route('/Tyypit')

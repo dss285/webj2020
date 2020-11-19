@@ -1,8 +1,9 @@
 # webj2020
-Tehtäväpaketti Node 1, ...
+Tehtäväpaketti Node 1, 2, 3...
 ## Tarvittavat Node moduulit
 * Express
 * MySQL
+* Handlebars
 
 ## Miten käyttää
 Muuta server.js tiedostossa MySQL tunnukset ja tietokanta.

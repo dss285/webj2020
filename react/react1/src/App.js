@@ -2,6 +2,7 @@
 import './App.css';
 import TableClass from './TableClass';
 import Laskuri from './Laskuri';
+import Elaimet from './Elaimet'
 /*
     <div className="App">
       <header className="App-header">
@@ -41,6 +42,8 @@ function App() {
   ]} />
   <h2>Laskuri</h2>
   <Laskuri />
+  <h2>Eläimet</h2>
+  <Elaimet elaimet={[{nimi:"Martta",omistaja:"Joonas",vuosi:2017},{nimi:"Jouni", omistaja:"Aaron", vuosi:2009},{nimi:"Maarit", omistaja: "Loona", vuosi:2012},{nimi:"Mauno", omistaja :"Mauri", vuosi : 2002}]}/>
   </div>;
 }
 

@@ -41,7 +41,7 @@ class Yhteystiedot extends React.Component {
                 
             </div>
             : 
-            <div>Yhteystiedot</div>
+            <div>Täällä on mahdollisesti yhteystietoja</div>
             
             }
         </div>

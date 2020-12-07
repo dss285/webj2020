@@ -1,0 +1,20 @@
+{
+  "asiakkaat": [
+    {
+        "id" : 1,
+        "nimi" : "Marko",
+        "osoite" : "Jokutie 5",
+        "pnro" : 70400,
+        "ptp" : "Kuopio",
+        "puhno" : "044 4040400"
+    },
+    {
+        "id" : 2,
+        "nimi" : "Jouni",
+        "osoite" : "Etie 2",
+        "pnro" : 70600,
+        "ptp" : "Kuopio",
+        "puhno" : "022 2020200"
+    }
+  ]
+}
